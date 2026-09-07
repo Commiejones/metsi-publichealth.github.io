@@ -24,6 +24,8 @@ expanded <- current_team |>
       name = e[["name"]],
       affiliation = e[["affiliation"]],
       webpage = e[["webpage"]],
+      email = e[["email"]],
+      image = e[["image"]],
       github = e[["github"]],
       twitter = e[["twitter"]],
       bluesky = e[["bluesky"]],

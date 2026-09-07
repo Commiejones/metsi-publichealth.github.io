@@ -2,18 +2,20 @@
 # From https://distillery.rbind.io/posts/2021-03-24-customizing-distill-with-htmltools-and-css/
 
 make_icon <- function(icon) {
-  return(htmltools::tag("i", list(class = icon)))
+  htmltools::tag("i", list(class = icon))
 }
 
-make_icon_text <- function(icon, text) {
-  return(htmltools::HTML(paste0(make_icon(icon), " ", text)))
+make_icon_text <- function(icon, text = "") {
+  if (is.null(text)) text <- ""
+  htmltools::HTML(paste0(as.character(make_icon(icon)), " ", text))
 }
 
-icon_link <- function(icon = NULL, text = NULL, url = NULL) {
+icon_link <- function(icon = NULL, text = "", url = NULL) {
   if (!is.null(icon)) {
     text <- make_icon_text(icon, text)
   }
-  return(htmltools::a(href = url, text, class = "icon-link"))
+
+  htmltools::a(href = url, text, class = "icon-link")
 }
 ```
 
@@ -22,7 +24,13 @@ title <- "{{name}}"
 aff <- "{{affiliation}}"
 
 if ("{{webpage}}" != "") {
-  title <- htmltools::a(paste0(title," (",aff,")"), "href" = "{{webpage}}")
+  title <- htmltools::a(paste0(title, " (", aff, ")"), href = "{{webpage}}")
+} else {
+  title <- paste0(title, " (", aff, ")")
+}
+
+if ("{{email}}" != "") {
+  title <- paste(title, icon_link("bi bi-envelope", url = "mailto:{{email}}"))
 }
 
 if ("{{github}}" != "") {
@@ -44,12 +52,14 @@ if ("{{bluesky}}" != "") {
 
 ### `r title`
 
-:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 15px;"}
+:::: {style="display: grid; grid-template-columns: 150px 1fr; grid-column-gap: 15px; align-items: start;"}
 
 ::: {class=profile-pic}
 
 ```{r, echo = FALSE}
-if ("{{github}}" != "") {
+if ("{{image}}" != "") {
+  knitr::include_graphics("{{image}}")
+} else if ("{{github}}" != "") {
   knitr::include_graphics(gh::gh("/users/{{github}}")$avatar_url)
 }
 ```
