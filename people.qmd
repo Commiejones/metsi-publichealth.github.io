@@ -28,7 +28,7 @@ expanded <- current_team |>
       twitter = e[["twitter"]] %||% "",
       bluesky = e[["bluesky"]] %||% "",
       orcid = e[["orcid"]] %||% "",
-      description = e[["description"]]
+      description = e[["description"]] %||% ""
     )
   }) |>
   knitr::knit_child(text = _, quiet = TRUE) |>
