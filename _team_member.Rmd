@@ -51,12 +51,6 @@ if (bluesky != "") {
 
 ::: {class=profile-pic}
 
-```{r, echo = FALSE}
-if (github != "") {
-  knitr::include_graphics(gh::gh(paste0("/users/", github))$avatar_url)
-}
-```
-
 :::
 
 ::: {}
