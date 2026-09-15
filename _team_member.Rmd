@@ -26,7 +26,10 @@ if (webpage != "") {
 }
 
 if (github != "") {
-  title <- htmltools::div(title, icon_link("bi bi-github", url = paste0("https://github.com/", github)))
+  #title <- htmltools::div(title, icon_link("bi bi-github", url = paste0("https://github.com/", github)))
+  knitr::include_graphics(
+    paste0("https://github.com/", github, ".png?size=200")
+  )
 }
 
 if (twitter != "") {
