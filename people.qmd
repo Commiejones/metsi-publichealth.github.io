@@ -17,33 +17,40 @@ Team members are staff, students and long-term visitors (3 months or more) of th
 ## Current team members
 
 ```{r, results='asis'}
-for (e in current_team) {
-  member_name <- e[["name"]]
+field <- function(e, name) {
+  value <- e[[name]]
 
-  if (!is.character(member_name) ||
-      length(member_name) != 1 ||
-      is.na(member_name) ||
-      !nzchar(member_name)) {
-    stop("Team member is missing a valid 'name' field.")
+  if (is.null(value) || length(value) == 0 || all(is.na(value))) {
+    return("")
   }
 
-  child_env <- list2env(list(
-    name = member_name,
-    affiliation = e[["affiliation"]] %||% "",
-    webpage = e[["webpage"]] %||% "",
-    github = e[["github"]] %||% "",
-    twitter = e[["twitter"]] %||% "",
-    bluesky = e[["bluesky"]] %||% "",
-    orcid = e[["orcid"]] %||% "",
-    description = trimws(e[["description"]] %||% "")
-  ))
-
-  cat(knitr::knit_child(
-    "_team_member.Rmd",
-    envir = child_env,
-    quiet = TRUE
-  ))
+  paste(as.character(value), collapse = " ")
 }
+
+expanded <- purrr::map_chr(current_team, function(e) {
+  knitr::knit_expand(
+    "_team_member.Rmd", 
+    name = field(e, "name"),
+    affiliation = field(e, "affiliation"),
+    email = field(e, "email"),
+    image = field(e, "image"),
+    webpage = field(e, "webpage"),
+    github = field(e, "github"),
+    twitter = field(e, "twitter"),
+    bluesky = field(e, "bluesky"),
+    orcid = field(e, "orcid"),
+    description = field(e, "description")
+  )
+})
+
+expanded_text <- paste(expanded, collapse = "\n\n")
+
+child_output <- knitr::knit_child(
+  text = expanded_text,
+  quiet = TRUE
+)
+
+cat(child_output, sep = "\n")
 ```
 
 ## Former team members
