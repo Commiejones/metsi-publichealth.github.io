@@ -7,6 +7,14 @@ team <- fs::dir_ls("_data/team", regexp = "\\w+\\-\\w+\\.yml") |>
 #  team[-which(purrr::map(team, "name") == "Sebastian Funk")]
 #)
 
+icon_link <- function(url, icon, label = NULL) {
+  if (is.null(url) || !nzchar(url)) return("")
+  sprintf(
+    '<a href="%s"><i class="%s"></i>%s</a>',
+    url, icon, ifelse(is.null(label), "", paste0(" ", label))
+  )
+}
+
 ## keep current team members
 current_team <- team |>
   purrr::keep(\(x) {
