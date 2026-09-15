@@ -28,7 +28,7 @@ expanded <- current_team |>
       twitter = e[["twitter"]] %||% "",
       bluesky = e[["bluesky"]] %||% "",
       orcid = e[["orcid"]] %||% "",
-      description = e[["description"]] %||% ""
+      description = trimws(e[["description"]] %||% "")
     )
   }) |>
   knitr::knit_child(text = _, quiet = TRUE) |>
@@ -48,5 +48,4 @@ former_team <- team[setdiff(names(team), names(current_team))] |>
   }) |>
   cat(sep = " · ")
 ```
-
 
