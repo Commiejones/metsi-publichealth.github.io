@@ -58,7 +58,11 @@ if ("{{github}}" != "") {
 
 ::: {}
 
-{{ description }}
+```{r, echo = FALSE}
+if ("{{description}}" != "" && !is.null("{{description}}")) {
+  cat("{{description}}")
+}
+:::
 
 :::
 
