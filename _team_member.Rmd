@@ -20,17 +20,28 @@ icon_link <- function(icon = NULL, text = "", url = NULL) {
 ```
 
 ```{r}
+name <- "{{name}}"
+affiliation <- "{{affiliation}}"
+email <- "{{email}}"
+image <- "{{image}}"
+webpage <- "{{webpage}}"
+github <- "{{github}}"
+twitter <- "{{twitter}}"
+bluesky <- "{{bluesky}}"
+orcid <- "{{orcid}}"
+description <- "{{description}}"
+
 title <- name
 aff <- affiliation
 
-if ("{{webpage}}" != "") {
-  title <- htmltools::a(paste0(title, " (", aff, ")"), href = "{{webpage}}")
+if (webpage != "") {
+  title <- htmltools::a(paste0(title, " (", aff, ")"), href = webpage)
 } else {
   title <- paste0(title, " (", aff, ")")
 }
 
-if ("{{email}}" != "") {
-  title <- paste(title, icon_link("bi bi-envelope", url = "mailto:{{email}}"))
+if (email != "") {
+  title <- paste(title, icon_link("bi bi-envelope", url = paste0("mailto:", email)))
 }
 
 if (github != "") {
@@ -60,10 +71,10 @@ if (bluesky != "") {
 ::: {class=profile-pic}
 
 ```{r, echo = FALSE}
-if ("{{image}}" != "") {
-  knitr::include_graphics("{{image}}")
-} else if ("{{github}}" != "") {
-  knitr::include_graphics(gh::gh("/users/{{github}}")$avatar_url)
+if (image != "") {
+  knitr::include_graphics(image)
+} else if (github != "") {
+  knitr::include_graphics(gh::gh(paste0("/users/", github))$avatar_url)
 }
 ```
 
