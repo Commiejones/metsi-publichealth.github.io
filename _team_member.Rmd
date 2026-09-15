@@ -51,6 +51,14 @@ if (bluesky != "") {
 
 ::: {class=profile-pic}
 
+```{r, echo = FALSE}
+if (!is.null(github) && length(github) == 1 && nzchar(github)) {
+  knitr::include_graphics(
+    paste0("https://github.com/", github, ".png?size=200")
+  )
+}
+```
+
 :::
 
 ::: {}
@@ -60,3 +68,9 @@ if (bluesky != "") {
 :::
 
 ::::
+````
+This is the code block that represents the suggested code change:
+```plaintext
+gh::gh(paste0("/users/", github))
+```
+```
