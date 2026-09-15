@@ -17,10 +17,10 @@ Team members are staff, students and long-term visitors (3 months or more) of th
 ## Current team members
 
 ```{r, results='asis'}
-expanded <- current_team |>
-  purrr::map_chr(function(e) {
-    knitr::knit_expand(
-      "_team_member.Rmd", 
+for (e in current_team) {
+  cat(knitr::knit_child(
+    "_team_member.Rmd",
+    envir = list(
       name = e[["name"]],
       affiliation = e[["affiliation"]],
       webpage = e[["webpage"]] %||% "",
@@ -29,10 +29,10 @@ expanded <- current_team |>
       bluesky = e[["bluesky"]] %||% "",
       orcid = e[["orcid"]] %||% "",
       description = trimws(e[["description"]] %||% "")
-    )
-  }) |>
-  knitr::knit_child(text = _, quiet = TRUE) |>
-  cat(sep = "\n")
+    ),
+    quiet = TRUE
+  ))
+}
 ```
 
 ## Former team members
