@@ -1,11 +1,14 @@
-name: Mukhlid Yousif
-affiliation: NICD
-webpage: https://www.linkedin.com/in/mukhlid-yousif-77705777/
-github: 
-orcid: 0000-0002-8707-2255
+name: "Emmanuel Owusu Ahenkan"
+affiliation: "SACEMA"
+webpage: "https://www.sacema.org/person/emmanuel-owusu-ahenkan-msc/"
+email: "emowusuahenkan@gmail.com"
+image: "images/team/emmanuel-ahenkan.jpg"
+github: "https://github.com/EmmanuelOwusu"
+orcid:  "https://orcid.org/0009-0007-7278-7032"
+
 position:
-  -
-    type: Staff
-    start: 2025-04-01
+  - title: "PhD student"
+    start: 2024-01-01
 description: >
-  Dr Mukhlid Yousif is a Researcher, and Senior Genomics and Public Health Scientist with over 15 years of experience in molecular virology, bioinformatics, and genomic epidemiology. His research spans hepatitis B virus, HIV drug resistance, measles, rubella, and polio. He co-established the Wastewater Genomics Syndicate at the National Institute for Communicable Diseases (NICD) in South Africa, leading the development and implementation of multi-pathogen wastewater surveillance to inform public health responses. Dr Yousif has led international collaborations and consortia, received multiple grants, published over 20 peer-reviewed articles, supervised postgraduate students, and works closely with regional and global partners to strengthen diseases surveillance using wastewater across Africa.
+ Emmanuel Owusu Ahenkan is a PhD student at the South African Centre for Epidemiological Modelling and Analysis (SACEMA), Stellenbosch University. He holds a Master of Science degree in Mathematical Sciences and another in Machine Learning. He is passionate about applying mathematical modelling and artificial intelligence techniques to address health challenges in Africa. His research in this project focuses on modelling the impact of incorporating wastewater surveillance as a routine method for influenza control.
+
