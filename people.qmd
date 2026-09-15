@@ -23,11 +23,11 @@ expanded <- current_team |>
       "_team_member.Rmd", 
       name = e[["name"]],
       affiliation = e[["affiliation"]],
-      webpage = e[["webpage"]],
-      github = e[["github"]],
-      #twitter = e[["twitter"]],
-      #bluesky = e[["bluesky"]],
-      orcid = e[["orcid"]],
+      webpage = e[["webpage"]] %||% "",
+      github = e[["github"]] %||% "",
+      twitter = e[["twitter"]] %||% "",
+      bluesky = e[["bluesky"]] %||% "",
+      orcid = e[["orcid"]] %||% "",
       description = e[["description"]]
     )
   }) |>
