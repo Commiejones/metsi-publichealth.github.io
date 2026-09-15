@@ -62,7 +62,7 @@ if ("{{github}}" != "") {
 if ("{{description}}" != "" && !is.null("{{description}}")) {
   cat("{{description}}")
 }
-:::
+```
 
 :::
 
