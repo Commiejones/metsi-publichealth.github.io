@@ -38,7 +38,7 @@ truncate_authors <- function(authors) {
 }
 
 bib <- bibtex::read.bib(bibfile) %>%
-  purrr::keep(~ attr(.x, "bibtype") == "Article" | "Online")
+  purrr::keep(~ attr(.x, "bibtype") %in% c("Article", "Online"))
 
 # Sort by year descending
 years <- purrr::map_chr(bib, ~ as.character(as.numeric(.x$year) %||% "0"))
