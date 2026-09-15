@@ -41,7 +41,7 @@ bib <- bibtex::read.bib(bibfile) %>%
   purrr::keep(~ attr(.x, "bibtype") == "Article" | "Online")
 
 # Sort by year descending
-years <- purrr::map_chr(bib, ~ as.character(.x$year %||% "0"))
+years <- purrr::map_chr(bib, ~ as.character(as.numeric(.x$year) %||% "0"))
 bib <- bib[order(years, decreasing = TRUE)]
 
 # Render each publication

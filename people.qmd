@@ -67,4 +67,3 @@ former_team <- team[setdiff(names(team), names(current_team))] |>
   cat(sep = " · ")
 ```
 
-
