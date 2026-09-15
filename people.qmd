@@ -18,6 +18,23 @@ Team members are staff, students and long-term visitors (3 months or more) of th
 
 ```{r, results='asis'}
 for (e in current_team) {
+  member_name <- e[["name"]]
+
+  if (is.null(member_name) || length(member_name) != 1 ||
+      !is.character(member_name) || !nzchar(member_name)) {
+    stop("A current team member is missing a valid 'name' field.")
+  }
+
+  cat(knitr::knit_child(
+    "_team_member.Rmd",
+    envir = list(
+      name = member_name,
+      # ...existing values...
+    ),
+    quiet = TRUE
+  ))
+}
+for (e in current_team) {
   cat(knitr::knit_child(
     "_team_member.Rmd",
     envir = list(
