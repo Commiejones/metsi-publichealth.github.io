@@ -14,10 +14,20 @@ properties:
     description: >
       select one of the consortium partners
     type: string
-  github:
-    description: Your github username (*without* the '@')
+  webpage:
+    description: webpage
     type: string
-    pattern: ^[^@]+
+    format: uri
+  email:
+    description: email address
+    type: string
+  image:
+    description: location of local image
+    type: string
+  github:
+    description: Your github username (*without* the '@') allows for blank
+    type: string
+    pattern: ^([^@]+)?$
   twitter:
     description: Your twitter username (with and without @ both work)
     type: string
@@ -31,10 +41,6 @@ properties:
   description:
     description: A short text about yourself and your work within the team.
     type: string
-  webpage:
-    description: A link to your personal webpage
-    type: string
-    format: uri
 required:
   - name
   - position
