@@ -13,18 +13,21 @@ website:
   description: "metsi-public-health team website"
   navbar:
     left:
+      - text: "About"
+        href: about.qmd
       - text: "People"
         href: people.qmd
       #- text: "Lab manual"
       #  href: lab-manual.qmd
       - text: "News"
         href: news.qmd
-      #- text: "Software"
-      #  href: software.qmd
       - text: "Projects"
         href: projects.qmd
       - text: "Publications"
         href: pubs.qmd
+      - text: "Resources"
+        href: resources.qmd
+
       #- text: "Join us"
       #  href: positions.qmd
       - text: "Contact"

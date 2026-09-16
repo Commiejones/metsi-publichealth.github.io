@@ -1,0 +1,77 @@
+---
+title: "Projects"
+description: |
+  Ongoing analysis projects from the group
+---
+
+Ongoing analysis and research projects from the group. For completed work, see our [publications](pubs.qmd). For reusable tools, see our [software](software.qmd).
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(magrittr)
+```
+
+```{r load-team}
+# Load team members and create lookup by GitHub username
+team <- fs::dir_ls("_data/team", regexp = "\\w+\\-\\w+\\.yml") |>
+  purrr::map(yaml::read_yaml)
+
+team_by_github <- team %>%
+  purrr::keep(~ !is.null(.x$github) && .x$github != "") %>%
+  purrr::set_names(purrr::map_chr(., "github"))
+```
+
+```{r, results='asis'}
+# Each project is described by its own YAML file in _data/projects/, with a
+# title and text summary (see _data/projects/_schema.yml for the full set of
+# fields).
+projects <- fs::dir_ls("_data/projects", regexp = "\\w+\\-\\w+\\.yml") %>%
+  purrr::map(yaml::read_yaml)
+
+projects %>%
+  purrr::map_chr(function(p) {
+    # Link the title to the project's website/repo if available, otherwise
+    # show it as plain text
+    project_url <- p$url %||% (
+      if (!is.null(p$repo) && p$repo != "") paste0("https://github.com/", p$repo) else ""
+    )
+    title_section <- if (!is.null(project_url) && project_url != "") {
+      sprintf("[%s](%s)", p$title, project_url)
+    } else {
+      p$title
+    }
+
+    # Match listed team members to their profile for the contributors row
+    contributors_section <- ""
+    team_logins <- p$team %||% list()
+    if (length(team_logins) > 0) {
+      team_contributors <- team_logins %>%
+        purrr::keep(~ .x %in% names(team_by_github)) %>%
+        purrr::map(function(login) {
+          tm <- team_by_github[[login]]
+          list(name = tm$name, github = login)
+        })
+
+      if (length(team_contributors) > 0) {
+        contributor_items <- purrr::map_chr(team_contributors, function(c) {
+          sprintf(
+            '<a href="https://github.com/%s" title="%s"><img src="https://github.com/%s.png?size=64" alt="%s" width="32" height="32"></a>',
+            c$github, c$name, c$github, c$name
+          )
+        })
+        contributors_section <- paste(contributor_items, collapse = " ")
+      }
+    }
+
+    knitr::knit_expand(
+      "_project-item.Rmd",
+      title_section = title_section,
+      summary = stringr::str_squish(p$summary),
+      start = p$start %||% "",
+      end = p$end %||% "",
+      contributors_section = contributors_section
+    )
+  }) %>%
+  { knitr::knit_child(text = unlist(.), quiet = TRUE) } %>%
+  cat(sep = "\n")
+```
