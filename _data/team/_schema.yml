@@ -25,7 +25,7 @@ properties:
     description: location of local image
     type: string
   github:
-    description: Your github username (*without* the '@')
+    description: Your github username (*without* the '@') allows for blank
     type: string
     pattern: ^([^@]+)?$
   twitter:
