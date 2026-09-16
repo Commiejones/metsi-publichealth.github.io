@@ -19,5 +19,12 @@
     "title": "People",
     "section": "Former team members",
     "text": "Former team members"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Ongoing analysis and research projects from the group. For completed work, see our publications. For reusable tools, see our software.\n\nNICD Wastewater Genomics\n\n\nDocumentation and resources for the NICD Wastewater Genomics Syndicate, which coordinates multi-pathogen genomic surveillance of wastewater across South Africa to inform public health responses.\n\n\n\n\n\n\n\nPolio environmental surveillance\n\n\nModelling and analysis of poliovirus environmental (wastewater) surveillance data to support detection and response efforts.\n\n\n\n\n\n\n\nWastewater spiking experiment\n\n\nR code and modelling for a wastewater spiking experiment, used to characterise pathogen recovery and decay in wastewater surveillance methods."
   }
 ]
