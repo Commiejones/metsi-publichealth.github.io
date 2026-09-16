@@ -16,7 +16,8 @@ properties:
     type: string
   webpage:
     description: webpage
-    type: uri
+    type: string
+    format: uri
   email:
     description: email address
     type: string
