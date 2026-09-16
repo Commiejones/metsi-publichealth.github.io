@@ -12,4 +12,18 @@ position:
     type: Staff
     start: 2025-04-01
 description: >
-  Fiona is an epidemiologist working with the National Institute for Communicable Diseases (NICD) and the Gauteng City-Region Observatory (GCRO), to monitor pathogens in urban communities using wastewater surveillance. Fiona is a PhD candidate at the University of Witwatersrand and holds a Master of Science (MSc) in Epidemiology and Biostatistics as well as an MSc in Biochemistry. Her current research focuses on using wastewater as an environmental surveillance tool to complement clinical surveillance and determine the impact of socio-economic factors on disease. In this project, she is assisting in modelling Hepatitis A in a spatial environment.
+  name: Fiona Els
+affiliation: GCRO & Wastewater Genomics Syndicate, CVI, NICD
+webpage: https://gcro.ac.za/about/staff/#fiona-els
+email: ""
+image: ""
+github: FionaEls
+twitter: ""
+bluesky: ""  
+orcid: 0000-0002-4169-813X
+position:
+  -
+    type: Staff
+    start: 2025-04-01
+description: >
+  Fiona is an epidemiologist working with the National Institute for Communicable Diseases (NICD) and the Gauteng City-Region Observatory (GCRO) to monitor pathogens in urban communities through wastewater surveillance. She is a PhD candidate at the University of the Witwatersrand, holding an MSc in Epidemiology and Biostatistics and an MSc in Biochemistry. Her current research uses wastewater as an environmental surveillance tool to complement clinical surveillance and to understand how socio-economic factors shape disease patterns. As part of this work, she is helping to model Hepatitis A and measles within a spatial framework, bringing an interdisciplinary approach that applies epidemiological expertise to spatial and analytical methods. Fiona has been closely involved in establishing wastewater surveillance sites in Gauteng, and in the curation, analysis, and spatial modelling of the resulting data, as well as communicating findings across a range of outputs.
