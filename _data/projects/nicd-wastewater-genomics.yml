@@ -6,6 +6,6 @@ summary: >
 team: []
 url: "https://nicd-wastewater-genomics.github.io"
 repo: NICD-Wastewater-Genomics/NICD-Wastewater-Genomics.github.io
-image: ""
+image: images/genomes.svg
 start: ""
 end: ""
