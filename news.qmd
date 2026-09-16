@@ -1,5 +1,5 @@
 ---
-title: "METSI Public Health blog"
+title: "METSI Public Health News"
 listing: 
   contents: posts
   sort: "date desc"

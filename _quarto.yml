@@ -17,8 +17,8 @@ website:
         href: people.qmd
       #- text: "Lab manual"
       #  href: lab-manual.qmd
-      - text: "Blog"
-        href: blog.qmd
+      - text: "News"
+        href: news.qmd
       #- text: "Software"
       #  href: software.qmd
       - text: "Projects"
