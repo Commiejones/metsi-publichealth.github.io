@@ -41,7 +41,7 @@ if (webpage != "") {
 }
 
 if (email != "") {
-  title <- paste(title, icon_link("bi bi-envelope", url = paste0("mailto:", email)))
+  title <- htmltools::div(title, icon_link("bi bi-envelope", url = paste0("mailto:", email)))
 }
 
 if (twitter != "") {
