@@ -15,9 +15,11 @@ properties:
       select one of the consortium partners
     type: string
   webpage:
-    description: webpage
+    description: A link to your personal webpage (leave blank if you don't have one)
     type: string
-    format: uri
+    anyOf:
+      - const: ""
+      - format: uri
   email:
     description: email address
     type: string
