@@ -15,7 +15,7 @@ properties:
       select one of the consortium partners
     type: string
   webpage:
-    description: webpage
+    description: webpage, should allow for blanksx
     type: string
     format: uri
   email:
