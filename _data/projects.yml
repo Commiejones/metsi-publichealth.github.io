@@ -1,9 +1,0 @@
-# List of GitHub repositories to display on the Projects page
-# Descriptions are pulled from GitHub repo settings
-# Add optional 'url' field to link to a project website instead of GitHub
-
-- repo: NICD-Wastewater-Genomics/NICD-Wastewater-Genomics.github.io
-- repo: metsi-publichealth/metsi-publichealth.github.io
-- repo: toshiakiasakura/polio_environmental_surveillance
-- repo: kath-o-reilly/ww-spiking-expment-1
-

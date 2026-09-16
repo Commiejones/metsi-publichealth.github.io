@@ -1,0 +1,51 @@
+$schema: "http://json-schema.org/draft-07/schema"
+title: Project summary card
+description: >
+  This is the schema for the project summary cards contained in the present
+  folder. Each file describes one specific project to be shown on the
+  Projects page with a text summary.
+type: object
+properties:
+  title:
+    description: The project's title, as displayed on the Projects page.
+    type: string
+  summary:
+    description: A short text summary of the project.
+    type: string
+  team:
+    description: >
+      GitHub usernames of team members (from _data/team) involved in this
+      project, used to link to their profile and show their avatar.
+    anyOf:
+      - type: array
+        items:
+          type: string
+      - type: string
+  url:
+    description: >
+      A link for the project (e.g. a website, or GitHub repository). Leave
+      blank if there isn't one.
+    type: string
+    anyOf:
+      - const: ""
+      - format: uri
+  repo:
+    description: >
+      Optional GitHub repository (owner/name) associated with the project.
+      Leave blank if not applicable.
+    type: string
+  image:
+    description: >
+      Optional path to a local image illustrating the project. Leave blank
+      if not applicable.
+    type: string
+  start:
+    description: Project start date (YYYY-MM-DD).
+    type: string
+  end:
+    description: >
+      Project end date (YYYY-MM-DD). Leave blank if the project is ongoing.
+    type: string
+required:
+  - title
+  - summary

@@ -1,24 +1,26 @@
 :::: {.project-card}
 
-#### [{{name}}]({{url}})
+#### {{title_section}}
 
 :::: {style="display: grid; grid-template-columns: 1fr 240px; grid-column-gap: 20px;"}
 
 ::: {}
 
-{{description}}
+{{summary}}
 
 ```{r, results='asis'}
-# Metadata line
+# Metadata line (project dates)
 meta <- c()
-if ("{{language}}" != "" && "{{language}}" != "NA") {
-  meta <- c(meta, "{{language}}")
+if ("{{start}}" != "" && "{{start}}" != "NA") {
+  meta <- c(meta, format(as.Date("{{start}}"), "%b %Y"))
 }
-if ("{{updated}}" != "" && "{{updated}}" != "NA") {
-  meta <- c(meta, paste0("Updated ", format(as.Date("{{updated}}"), "%b %Y")))
+if ("{{end}}" != "" && "{{end}}" != "NA") {
+  meta <- c(meta, paste0("– ", format(as.Date("{{end}}"), "%b %Y")))
+} else if (length(meta) > 0) {
+  meta <- c(meta, "– ongoing")
 }
 if (length(meta) > 0) {
-  cat('<div class="project-meta">', paste(meta, collapse = " · "), '</div>\n')
+  cat('<div class="project-meta">', paste(meta, collapse = " "), '</div>\n')
 }
 ```
 
