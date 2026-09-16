@@ -44,13 +44,6 @@ if (email != "") {
   title <- paste(title, icon_link("bi bi-envelope", url = paste0("mailto:", email)))
 }
 
-if (github != "") {
-  #title <- htmltools::div(title, icon_link("bi bi-github", url = paste0("https://github.com/", github)))
-  knitr::include_graphics(
-    paste0("https://github.com/", github, ".png?size=200")
-  )
-}
-
 if (twitter != "") {
   title <- htmltools::div(title, icon_link("bi bi-twitter", url = paste0("https://twitter.com/", twitter)))
 }
